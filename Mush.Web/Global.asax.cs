@@ -26,7 +26,6 @@ namespace Mush.Web
 
             //SlackNotificationTarget
             var slackNotificationTarget = new SlackNotificationTarget();
-            slackNotificationTarget.AddUrl("https://hooks.slack.com/services/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");
             ServiceLocator.Register(slackNotificationTarget);
 
             //NotificationService
