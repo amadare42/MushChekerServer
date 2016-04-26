@@ -32,6 +32,10 @@ namespace Mush.Web
             var notificationService = new NotificationService();
             notificationService.Targets.Add(slackNotificationTarget);
             ServiceLocator.Register(notificationService);
+
+            //AutoCheckService
+            var autoCheckService = new AutoCheckService(checkService, notificationService);
+            ServiceLocator.Register(autoCheckService);
         }
     }
 }
