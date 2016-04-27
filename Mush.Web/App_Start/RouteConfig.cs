@@ -18,7 +18,12 @@ namespace Mush.Web
                 url: "{controller}/{action}/{id}",
                 defaults: new { action = "Index", id = UrlParameter.Optional }
             );
+
+            routes.MapRoute(
+                name: "Console",
+                url: "{controller}/{action}",
+                defaults: new { controller = "Console", action = "Index" }
+            );
         }
     }
 }
-

@@ -175,16 +175,12 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ConsoleController.cs" />
-    <Compile Include="Models\ServiceLocator.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\MushApiController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\AutoCheckService.cs" />
-    <Compile Include="Services\HeroCheckService.cs" />
-    <Compile Include="Services\NotificationService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -205,11 +201,20 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Mush.Common\Mush.Common.csproj">
       <Project>{a3fc7b36-d0f4-41e4-9683-3a1a0891cfcd}</Project>
       <Name>Mush.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mush.Services\Mush.Services.csproj">
+      <Project>{7d8381dc-91d7-4ccc-99c6-3c0de6b59fc0}</Project>
+      <Name>Mush.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mush.Web.Core\Mush.Web.Core.csproj">
+      <Project>{eeb2cad6-255b-48f1-98ef-4fc182775b0c}</Project>
+      <Name>Mush.Web.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

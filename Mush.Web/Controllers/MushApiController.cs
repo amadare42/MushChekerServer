@@ -1,12 +1,13 @@
 ﻿using Mush.Common;
-using Mush.Common.Intergrations.Slack;
-using Mush.Web.Models;
-using Mush.Web.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Http;
+using Mush.Common.NotificationTargets.Slack;
+using Mush.Services;
+using Mush.Services.HeroCheck;
+using Mush.Web.Core;
 
 namespace Mush.Web.Controllers
 {
@@ -82,7 +83,6 @@ namespace Mush.Web.Controllers
             var notificationService = ServiceLocator.Get<NotificationService>();
 
             var characterInfos = (await heroCheckService.MakeCheckAsync()).ToList();
-
             notificationService.SendUserInfos(characterInfos);
             return Ok(characterInfos);
         }

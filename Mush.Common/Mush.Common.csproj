@@ -62,12 +62,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AutoRunner.cs" />
-    <Compile Include="HeroChecking\IHeroFetcher.cs" />
+    <Compile Include="IHeroFetcher.cs" />
     <Compile Include="HeroChecking\WebRequestHeroFetcher.cs" />
-    <Compile Include="Intergrations\INotificationTarget.cs" />
-    <Compile Include="Intergrations\Slack\SlackNotificationTarget.cs" />
-    <Compile Include="Intergrations\Slack\SlackJsonHelper.cs" />
-    <Compile Include="SubscriberInfo.cs" />
+    <Compile Include="INotificationTarget.cs" />
+    <Compile Include="NotificationTargets\Slack\SlackNotificationTarget.cs" />
+    <Compile Include="NotificationTargets\Slack\SlackJsonHelper.cs" />
     <Compile Include="HeroCheckResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

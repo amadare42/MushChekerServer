@@ -1,7 +1,8 @@
 ﻿using Mush.Common.HeroChecking;
-using Mush.Common.Intergrations.Slack;
-using Mush.Web.Models;
-using Mush.Web.Services;
+using Mush.Common.NotificationTargets.Slack;
+using Mush.Services;
+using Mush.Services.HeroCheck;
+using Mush.Web.Core;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Routing;
