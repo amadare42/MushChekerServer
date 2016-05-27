@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mush.Services", "Mush.Servi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mush.Web.Core", "Mush.Web.Core\Mush.Web.Core.csproj", "{EEB2CAD6-255B-48F1-98EF-4FC182775B0C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mush.Tests", "Mush.Tests\Mush.Tests.csproj", "{A9786527-5918-4950-B822-D603B881ACA9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{EEB2CAD6-255B-48F1-98EF-4FC182775B0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EEB2CAD6-255B-48F1-98EF-4FC182775B0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EEB2CAD6-255B-48F1-98EF-4FC182775B0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9786527-5918-4950-B822-D603B881ACA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9786527-5918-4950-B822-D603B881ACA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9786527-5918-4950-B822-D603B881ACA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9786527-5918-4950-B822-D603B881ACA9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

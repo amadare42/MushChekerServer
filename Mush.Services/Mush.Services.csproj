@@ -42,10 +42,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AutoCheckService.cs" />
-    <Compile Include="HeroCheck\HeroCheckService.cs" />
-    <Compile Include="HeroCheck\SubscriberInfo.cs" />
-    <Compile Include="HeroCheck\SubscriptionResult.cs" />
-    <Compile Include="HeroCheck\SubscriptionResultExtenstions.cs" />
+    <Compile Include="FetchingService.cs" />
+    <Compile Include="HeroCheckService.cs" />
+    <Compile Include="SubscribtionManagerService.cs" />
+    <Compile Include="HeroFilterService.cs" />
     <Compile Include="NotificationService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -6,18 +6,7 @@ namespace Mush.Common
 {
     public class AutoRunner
     {
-        public Action Action { get; private set; }
-        public TimeSpan Interval { get; private set; }
         private CancellationTokenSource cancellationTokenSource;
-
-        public bool IsRuning
-        {
-            get
-            {
-                return cancellationTokenSource != null
-                  && !cancellationTokenSource.IsCancellationRequested;
-            }
-        }
 
         public AutoRunner()
         {
@@ -29,6 +18,18 @@ namespace Mush.Common
             Action = action;
         }
 
+        public Action Action { get; private set; }
+        public TimeSpan Interval { get; private set; }
+
+        public bool IsRuning
+        {
+            get
+            {
+                return cancellationTokenSource != null
+                       && !cancellationTokenSource.IsCancellationRequested;
+            }
+        }
+
         public void Start(TimeSpan interval)
         {
             StartNew(Action, interval);
@@ -37,10 +38,10 @@ namespace Mush.Common
         public void StartNew(Action action, TimeSpan interval)
         {
             if (IsRuning)
-                this.Stop();
+                Stop();
             Action = action;
             Interval = interval;
-            IObservable<long> observable = Observable.Interval(interval);
+            var observable = Observable.Interval(interval);
             cancellationTokenSource = new CancellationTokenSource();
             observable.Subscribe(x => action(), cancellationTokenSource.Token);
         }

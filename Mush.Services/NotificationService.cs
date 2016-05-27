@@ -1,19 +1,20 @@
-﻿using System.Collections.Generic;
+﻿using Mush.Common.Services.Fetching;
+using Mush.Common.Services.Notification;
+using System.Collections.Generic;
 using System.Linq;
-using Mush.Common;
 
 namespace Mush.Services
 {
-    public class NotificationService
+    public class NotificationService : INotificationService
     {
         public readonly List<INotificationTarget> Targets = new List<INotificationTarget>();
 
-        public void SendUserInfos(IEnumerable<HeroCheckResult> infos)
+        public void Notify(IEnumerable<HeroFetchResult> results)
         {
-            var infosList = infos.ToList();
+            var infosList = results.ToList();
             foreach (var target in Targets)
             {
-                target.SendUserInfos(infosList);
+                target.Notify(infosList);
             }
         }
     }

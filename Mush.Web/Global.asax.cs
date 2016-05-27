@@ -1,15 +1,20 @@
-﻿using Mush.Common.HeroChecking;
-using Mush.Common.NotificationTargets.Slack;
-using Mush.Services;
-using Mush.Services.HeroCheck;
-using Mush.Web.Core;
+﻿using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Routing;
+using Mush.Common.Services;
+using Mush.Common.Services.Fetching.Fetchers;
+using Mush.Common.Services.Filter;
+using Mush.Common.Services.Notification;
+using Mush.Common.Services.Notification.NotificationTargets.DebugConsole;
+using Mush.Common.Services.Notification.NotificationTargets.Slack;
+using Mush.Common.Services.Subscribtions;
+using Mush.Services;
+using Mush.Web.Core;
 
 namespace Mush.Web
 {
-    public class WebApiApplication : System.Web.HttpApplication
+    public class WebApiApplication : HttpApplication
     {
         protected void Application_Start()
         {
@@ -21,21 +26,36 @@ namespace Mush.Web
 
         private void RegisterServices()
         {
-            //HeroCheckService
-            var checkService = new HeroCheckService(new WebRequestHeroFetcher());
-            ServiceLocator.Register(checkService);
+            //SubscribtionManagerService
+            var subscribtionManager = new SubscribtionManagerService();
+            ServiceLocator.Register<ISubscribtionManager>(subscribtionManager);
 
             //SlackNotificationTarget
             var slackNotificationTarget = new SlackNotificationTarget();
             ServiceLocator.Register(slackNotificationTarget);
 
+            //HeroFilterService
+            var heroFilterService = new HeroFilterService();
+            ServiceLocator.Register<IHeroFilterService>(heroFilterService);
+
             //NotificationService
             var notificationService = new NotificationService();
+            ServiceLocator.Register<INotificationService>(notificationService);
+
+            //HeroCheckService
+            var fetcher = new WebRequestHeroFetcher();
+            var fetchingService = new FetchingService(fetcher, subscribtionManager);
+            var heroCheckService = new HeroCheckService(fetchingService, heroFilterService, notificationService);
+            ServiceLocator.Register<IHeroCheckService>(heroCheckService);
+
+            //NotificationService Targets
             notificationService.Targets.Add(slackNotificationTarget);
-            ServiceLocator.Register(notificationService);
+#if DEBUG
+            notificationService.Targets.Add(new DebugNotificationTarget());
+#endif
 
             //AutoCheckService
-            var autoCheckService = new AutoCheckService(checkService, notificationService);
+            var autoCheckService = new AutoCheckService(heroCheckService);
             ServiceLocator.Register(autoCheckService);
         }
     }

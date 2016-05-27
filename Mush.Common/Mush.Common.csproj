@@ -62,13 +62,24 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AutoRunner.cs" />
-    <Compile Include="IHeroFetcher.cs" />
-    <Compile Include="HeroChecking\WebRequestHeroFetcher.cs" />
-    <Compile Include="INotificationTarget.cs" />
-    <Compile Include="NotificationTargets\Slack\SlackNotificationTarget.cs" />
-    <Compile Include="NotificationTargets\Slack\SlackJsonHelper.cs" />
-    <Compile Include="HeroCheckResult.cs" />
+    <Compile Include="Services\Fetching\Fetchers\StaticHeroFetcher.cs" />
+    <Compile Include="Services\Fetching\IFetchingService.cs" />
+    <Compile Include="Services\Filter\HeroFilterConfig.cs" />
+    <Compile Include="Services\Filter\IHeroFilterService.cs" />
+    <Compile Include="Services\IHeroCheckService.cs" />
+    <Compile Include="Services\Fetching\IHeroFetcher.cs" />
+    <Compile Include="Services\Fetching\Fetchers\WebRequestHeroFetcher.cs" />
+    <Compile Include="Services\Notification\INotificationService.cs" />
+    <Compile Include="Services\Notification\INotificationTarget.cs" />
+    <Compile Include="CommonNamesHelper.cs" />
+    <Compile Include="Services\Subscribtions\ISubscribtionManager.cs" />
+    <Compile Include="Services\Notification\NotificationTargets\DebugConsole\DebugNotificationTarget.cs" />
+    <Compile Include="Services\Notification\NotificationTargets\Slack\SlackNotificationTarget.cs" />
+    <Compile Include="Services\Notification\NotificationTargets\Slack\SlackJsonHelper.cs" />
+    <Compile Include="Services\Fetching\HeroFetchResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\Subscribtions\SubscriberInfo.cs" />
+    <Compile Include="Services\Subscribtions\SubscriptionResult.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config">

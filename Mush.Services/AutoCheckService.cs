@@ -1,19 +1,17 @@
-﻿using Mush.Common;
-using Mush.Services.HeroCheck;
-using System;
+﻿using System;
+using Mush.Common;
+using Mush.Common.Services;
 
 namespace Mush.Services
 {
     public class AutoCheckService
     {
-        private readonly HeroCheckService heroCheckService;
-        private readonly NotificationService notificationService;
+        private readonly IHeroCheckService heroCheckService;
         private readonly AutoRunner runner;
 
-        public AutoCheckService(HeroCheckService heroCheckService, NotificationService notificationService)
+        public AutoCheckService(IHeroCheckService heroCheckService)
         {
             this.heroCheckService = heroCheckService;
-            this.notificationService = notificationService;
             runner = new AutoRunner(RunCheck);
         }
 
@@ -33,8 +31,7 @@ namespace Mush.Services
 
         private async void RunCheck()
         {
-            var characterInfos = await heroCheckService.MakeCheckAsync();
-            notificationService.SendUserInfos(characterInfos);
+            await heroCheckService.MakeCheckAsync();
         }
     }
 }

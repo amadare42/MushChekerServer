@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 
-[assembly: AssemblyTitle("Mush.Web.Core")]
+[assembly: AssemblyTitle("Mush.Tests")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Mush.Web.Core")]
+[assembly: AssemblyProduct("Mush.Tests")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -22,7 +22,7 @@ using System.Runtime.InteropServices;
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
 
-[assembly: Guid("eeb2cad6-255b-48f1-98ef-4fc182775b0c")]
+[assembly: Guid("a9786527-5918-4950-b822-d603b881aca9")]
 
 // Version information for an assembly consists of the following four values:
 //
